@@ -73,7 +73,8 @@ ostream& operator<<(ostream& out, const formatBytes data)
     static const auto units = {"B", "KB", "MB", "GB", "TB"};
     auto unit = units.begin();
     size_t i = 0;
-    while (i < units.size() - 1 && std::abs(bytes) > 1000.) {
+    while (i < 2) {
+        // Update to only print in MB
         bytes /= 1000.;
         ++i;
         ++unit;
